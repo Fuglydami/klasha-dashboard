@@ -383,30 +383,36 @@ const BalanceTable = () => {
         </TableContainer>
       </Hidden>
       <Hidden smUp>
-        <TableContainer style={{ marginTop: '25px' }}>
-          {balance.map((row) => {
-            return (
-              <div className={classes.tableDisplay} key={row.id}>
-                <p>
-                  <span>Payout ID</span>
-                  <span>{row.payoutID}</span>
-                </p>
-                <p>
-                  <span>Source</span>
-                  <span>{row.source}</span>
-                </p>
-                <p>
-                  <span>Date</span>
-                  <span>{row.date}</span>
-                </p>
-                <p>
-                  <span>Amount</span>
-                  <span>&#36;{row.amount}</span>
-                </p>
-              </div>
-            );
-          })}
-        </TableContainer>
+        <motion.div
+          initial={{ y: 0, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 1, duration: 0.8 }}
+        >
+          <TableContainer style={{ marginTop: '25px' }}>
+            {balance.map((row) => {
+              return (
+                <div className={classes.tableDisplay} key={row.id}>
+                  <p>
+                    <span>Payout ID</span>
+                    <span>{row.payoutID}</span>
+                  </p>
+                  <p>
+                    <span>Source</span>
+                    <span>{row.source}</span>
+                  </p>
+                  <p>
+                    <span>Date</span>
+                    <span>{row.date}</span>
+                  </p>
+                  <p>
+                    <span>Amount</span>
+                    <span>&#36;{row.amount}</span>
+                  </p>
+                </div>
+              );
+            })}
+          </TableContainer>
+        </motion.div>
       </Hidden>
       <Button
         variant="contained"
